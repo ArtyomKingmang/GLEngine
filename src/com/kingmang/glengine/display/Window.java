@@ -3,11 +3,10 @@ package com.kingmang.glengine.display;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.glfw.GLFWWindowSizeCallback;
-import org.lwjgl.opengl.GL;
-import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.*;
 
 
-public class Display{
+public class Window {
     private int width, height;
     private String title;
     private long window;
@@ -19,9 +18,8 @@ public class Display{
     private boolean isFullscreen;
     private int[] windowPosX = new int[1], windowPosY = new int[1];
     public Thread game;
-    public int WIDTH, HEIGHT;
 
-    public Display(int width, int height, String title) {
+    public Window(int width, int height, String title) {
         this.width = width;
         this.height = height;
         this.title = title;
@@ -119,7 +117,9 @@ public class Display{
             GLFW.glfwSetWindowMonitor(window, 0, windowPosX[0], windowPosY[0], width, height, 0);
         }
     }
-
+    public void background(){
+         GL11.glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+    }
     public int getWidth() {
         return width;
     }
@@ -135,5 +135,7 @@ public class Display{
     public long getWindow() {
         return window;
     }
+
+
 
 }
