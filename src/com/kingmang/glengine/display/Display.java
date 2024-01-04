@@ -7,7 +7,7 @@ import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 
 
-public class Display {
+public class Display{
     private int width, height;
     private String title;
     private long window;
@@ -18,6 +18,8 @@ public class Display {
     private boolean isResized;
     private boolean isFullscreen;
     private int[] windowPosX = new int[1], windowPosY = new int[1];
+    public Thread game;
+    public int WIDTH, HEIGHT;
 
     public Display(int width, int height, String title) {
         this.width = width;
@@ -133,4 +135,5 @@ public class Display {
     public long getWindow() {
         return window;
     }
+
 }
