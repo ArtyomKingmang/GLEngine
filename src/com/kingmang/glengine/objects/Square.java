@@ -6,12 +6,7 @@ import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL33;
 
 public class Square implements Object {
-    static float[] vertices = new float[] {
-            -0.5f, 0.5f, 0.0f,  // Верхний левый угол
-            -0.5f, -0.5f, 0.0f, // Нижний левый угол
-            0.5f, -0.5f, 0.0f,  // Нижний правый угол
-            0.5f, 0.5f, 0.0f    // Верхний правый угол
-    };
+    static float[] vertices = new float[12];
     static int vbo;
     static int vao;
 

@@ -2,25 +2,39 @@ package com.kingmang.glengine;
 import com.kingmang.glengine.display.Window;
 import com.kingmang.glengine.objects.Object;
 import com.kingmang.glengine.objects.Ellipse;
+import com.kingmang.glengine.objects.Square;
+import org.lwjgl.opengl.GL;
+
+
+import com.kingmang.glengine.display.Window;
+import com.kingmang.glengine.objects.Object;
+import com.kingmang.glengine.objects.Square;
 import org.lwjgl.opengl.GL;
 
 public class Main {
+
+    public static float[] vertices = {
+            -0.5f, 0.5f, 0.0f,
+            -0.5f, -0.5f, 0.0f,
+            0.5f, -0.5f, 0.0f,
+            0.5f, 0.5f, 0.0f
+    };
 
     public static void main(String[] args) {
         Window display = new Window(500, 500, "title");
         display.create();
         GL.createCapabilities();
-        display.background();
-        Object ellipse = new Ellipse(0.0f, 0.0f, 0.5f, 0.3f); // Создаем эллипс с центром в (0, 0) и размерами 0.5x0.3
-        ellipse.init();
+        display.background(0,0,1.0f,0);
+        Object square = new Square(vertices);
+        square.init();
 
         // Основной цикл отрисовки
         while (!display.shouldClose()) {
             display.update();
-            ellipse.draw();
+            square.draw();
             display.swapBuffers();
         }
-        ellipse.destroy();
+        square.destroy();
         display.destroy();
     }
 }

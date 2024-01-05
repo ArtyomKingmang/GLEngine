@@ -117,8 +117,8 @@ public class Window {
             GLFW.glfwSetWindowMonitor(window, 0, windowPosX[0], windowPosY[0], width, height, 0);
         }
     }
-    public void background(){
-         GL11.glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+    public void background(float r, float g, float b, float alpha){
+         GL11.glClearColor(r, g, b, alpha);
     }
     public int getWidth() {
         return width;
